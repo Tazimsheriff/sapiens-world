@@ -1,5 +1,5 @@
 import Phaser from 'phaser'
-import type { DoorSide } from '../../types/world.ts'
+import type { DoorSide, InteractivePlacement } from '../../types/world.ts'
 import { interactives, TILE, TILE_COUNT } from '../world/layout.ts'
 import { createCanvas, fillRect, registerCanvas, sliceSheet } from './canvas.ts'
 import { palette } from './palette.ts'
@@ -29,7 +29,8 @@ export function generateTextures(scene: Phaser.Scene): void {
   drawShrub(scene)
   drawBubble(scene)
   const seen = new Set<string>()
-  for (const placement of interactives) {
+  for (const item of interactives) {
+    const placement: InteractivePlacement = item
     if (seen.has(placement.texture)) continue
     seen.add(placement.texture)
     if (placement.kind === 'building') {
