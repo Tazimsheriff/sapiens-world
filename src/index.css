@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bricolage Grotesque", "DM Sans", sans-serif;
+  --color-cream: #feeed3;
+  --color-ink: #0a0a0a;
+  --color-sun: #ffd966;
+  --color-mint: #d2ffb6;
+  --color-sky: #b6eaff;
+  --color-lilac: #e4d4ff;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: var(--color-cream);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+.world-host {
+  touch-action: none;
+  user-select: none;
+}
+
+.world-host canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
